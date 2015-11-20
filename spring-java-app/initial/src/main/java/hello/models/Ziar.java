@@ -1,11 +1,11 @@
 package hello;
 
 public class Ziar {
-	public int id;
-	public String nume;
-	public int an;
-	public int luna;
-	public int zi;
+	private  int id;
+	private  String nume;
+	private  int an;
+	private  int luna;
+	private  int zi;
 	public Ziar(int id, String nume, int an, int luna, int zi) {
 		super();
 		this.id = id;
