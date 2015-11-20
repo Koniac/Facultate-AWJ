@@ -31,10 +31,10 @@ public class CarteController{
     return this.carti;
   }
 
-  @RequestMapping(value="/carte/{id}", method = RequestMethod.Get)
+  @RequestMapping(value="/carte/{id}", method = RequestMethod.GET)
   public ResponseEntity show(@PathVariable("id") int id){
     for( Carte c : this.carti ){
-      if( c.getId==id ){
+      if( c.getId()==id ){
         return new ResponseEntity<Carte>(c,new HttpHeaders(), HttpStatus.OK);
       }
     }

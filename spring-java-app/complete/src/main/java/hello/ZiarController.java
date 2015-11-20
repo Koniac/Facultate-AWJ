@@ -17,9 +17,9 @@ public class ZiarController{
   private List<Ziar> ziare = new ArrayList<Ziar>();
 
   ZiarController(){
-    Ziar z1 = new Ziar(1,"Mango",2010,5);
-    Ziar z2 = new Ziar(2,"Ananas",2006,12);
-    Ziar z3 = new Ziar(3,"Gutuie",1990,3);
+    Ziar z1 = new Ziar(1,"Mango",2010,5,1);
+    Ziar z2 = new Ziar(2,"Ananas",2006,12,1);
+    Ziar z3 = new Ziar(3,"Gutuie",1990,3,1);
 
     ziare.add(z1);
     ziare.add(z2);
@@ -31,10 +31,10 @@ public class ZiarController{
     return this.ziare;
   }
 
-  @RequestMapping(value="/Ziar/{id}", method = RequestMethod.Get)
+  @RequestMapping(value="/Ziar/{id}", method = RequestMethod.GET)
   public ResponseEntity show(@PathVariable("id") int id){
     for( Ziar z : this.ziare ){
-      if( z.getId==id ){
+      if( z.getId()==id ){
         return new ResponseEntity<Ziar>(z,new HttpHeaders(), HttpStatus.OK);
       }
     }
@@ -53,7 +53,7 @@ public class ZiarController{
   }
 
   @RequestMapping(value="/Ziar", method = RequestMethod.POST)
-  public ResponseEntity create(@RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue=0) int an, @RequestParam(value="luna", defaultValue=0) int luna, @RequestParam(value="zi", defaultValue=0) int zi) {
+  public ResponseEntity create(@RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue="0") int an, @RequestParam(value="luna", defaultValue="0") int luna, @RequestParam(value="zi", defaultValue="0") int zi) {
 	Ziar newZiar = new Ziar(this.ziare.size() + 1,String.format(nume), an, luna, zi);
 	ziare.add(newZiar);
 	String numeZiar = newZiar.getNume();
@@ -66,7 +66,7 @@ public class ZiarController{
   }
 
   @RequestMapping(value="/Ziar/{id}", method = RequestMethod.PUT)
-  public ResponseEntity update(@PathVariable("id") int id , @RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue=0) int an, @RequestParam(value="luna", defaultValue=0) int luna, @RequestParam(value="zi", defaultValue=0) int zi) {
+  public ResponseEntity update(@PathVariable("id") int id , @RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue="0") int an, @RequestParam(value="luna", defaultValue="0") int luna, @RequestParam(value="zi", defaultValue="0") int zi) {
     for(Ziar z : this.ziare) {
       if(z.getId() == id) {
         z.setNume(nume);

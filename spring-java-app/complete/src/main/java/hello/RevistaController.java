@@ -31,10 +31,10 @@ public class RevistaController{
     return this.reviste;
   }
 
-  @RequestMapping(value="/revista/{id}", method = RequestMethod.Get)
+  @RequestMapping(value="/revista/{id}", method = RequestMethod.GET)
   public ResponseEntity show(@PathVariable("id") int id){
-    for( Revista z : this.reviste ){
-      if( r.getId==id ){
+    for( Revista r : this.reviste ){
+      if( r.getId()==id ){
         return new ResponseEntity<Revista>(r,new HttpHeaders(), HttpStatus.OK);
       }
     }
@@ -45,7 +45,7 @@ public class RevistaController{
   public ResponseEntity remove(@PathVariable("id") int id) {
     for(Revista r : this.reviste) {
       if(r.getId() == id) {
-        this.reviste.remove(z);
+        this.reviste.remove(r);
         return new ResponseEntity<String>(null, new HttpHeaders(), HttpStatus.NO_CONTENT);
       }
     }
@@ -53,7 +53,7 @@ public class RevistaController{
   }
 
   @RequestMapping(value="/revista", method = RequestMethod.POST)
-  public ResponseEntity create(@RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue=0) int an, @RequestParam(value="luna", defaultValue=0) int luna) {
+  public ResponseEntity create(@RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue="0") int an, @RequestParam(value="luna", defaultValue="0") int luna) {
 	Revista newRevista = new Revista(this.reviste.size() + 1,String.format(nume), an, luna);
 	reviste.add(newRevista);
 	String numeRevista = newRevista.getNume();
@@ -66,7 +66,7 @@ public class RevistaController{
   }
 
   @RequestMapping(value="/revista/{id}", method = RequestMethod.PUT)
-  public ResponseEntity update(@PathVariable("id") int id , @RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue=0) int an, @RequestParam(value="luna", defaultValue=0) int luna) {
+  public ResponseEntity update(@PathVariable("id") int id , @RequestParam(value="nume", defaultValue="blank") String nume, @RequestParam(value="an", defaultValue="0") int an, @RequestParam(value="luna", defaultValue="0") int luna) {
     for(Revista r : this.reviste) {
       if(r.getId() == id) {
         r.setNume(nume);
