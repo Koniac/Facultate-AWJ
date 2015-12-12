@@ -17,9 +17,9 @@ public class ZiarController{
   private List<Ziar> ziare = new ArrayList<Ziar>();
 
   ZiarController(){
-    Ziar z1 = new Ziar(1,"Mango",2010,5,1);
-    Ziar z2 = new Ziar(2,"Ananas",2006,12,1);
-    Ziar z3 = new Ziar(3,"Gutuie",1990,3,1);
+    Ziar z1 = new Ziar(1,"The Guardian",2010,5,1);
+    Ziar z2 = new Ziar(2,"The Times",2006,12,1);
+    Ziar z3 = new Ziar(3,"Huffington Post",1990,3,1);
 
     ziare.add(z1);
     ziare.add(z2);

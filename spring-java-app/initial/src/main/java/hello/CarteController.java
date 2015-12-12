@@ -20,6 +20,7 @@ public class CarteController{
     Carte c1 = new Carte(1,"The Emperor's Gift","Aaron Dembski Bowden");
     Carte c2 = new Carte(2,"A study in scarlet","Sir Arthur Conan Doyle");
     Carte c3 = new Carte(3,"The last wish","Andrzej Sapkowski");
+    Carte c4 = new Carte(4,"Vengful Spirit","Graham McNeill")
 
     carti.add(c1);
     carti.add(c2);
