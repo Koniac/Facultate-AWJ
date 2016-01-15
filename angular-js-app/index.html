@@ -42,15 +42,16 @@
   <hr/>
 
   <!-- /resources1 -->
-  <div ng-controller="CarteController" class="container">
+  <div ng-controller="HomeController" class="container">
     <h1><a name="Carte">Carte</a></h1>
     <h2>Afiseaza toate cartile.</h2>
     <table class="table table-bordered">
       <tr>
-        <th ng-repeat="key in keys">{{ key }}</th>
+        <th> Titlu</th>
+		<th>Autor </th>
         <th style="width:210px;">Options</th>
       </tr>
-      <tr ng-repeat="items in carti.data" data-id="{{ item.id }}">
+      <tr ng-repeat="item in carti.data" data-id="{{ item.id }}">
         <td>{{item.titlu}}</td>
         <td>{{item.autor}}</td>
         <td>
@@ -121,12 +122,15 @@
   <hr/>
 
   <!-- /resources2-->
-  <div ng-controller="ZiarController" class="container">
+  <div ng-controller="HomeController" class="container">
     <h1><a name="Ziar">Ziar</a></h1>
     <h2>Afiseaza toate ziarele</h2>
     <table class="table table-bordered">
       <tr>
-        <th ng-repeat="key in keys">{{ key }}</th>
+        <th>Nume</th>
+		<th> An </th>
+		<th> Luna </th>
+		<th> Zi </th>
         <th style="width:210px;">Options</th>
       </tr>
 
@@ -230,12 +234,14 @@
 
   <hr/>
   <!-- resursa 3 !-->
-  <div ng-controller="RevistaController" class="container">
+  <div ng-controller="HomeController" class="container">
     <h1><a name="Revista">Revista</a></h1>
     <h2>Afiseaza toate revistele.</h2>
     <table class="table table-bordered">
       <tr>
-        <th ng-repeat="key in keys">{{ key }}</th>
+       <th> Nume </th>
+	   <th> An </th>
+	   <th> Luna </th>
         <th style="width:210px;">Options</th>
       </tr>
 
