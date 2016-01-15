@@ -41,7 +41,7 @@
   <hr/>
 
   <!-- /resources1 -->
-  <div ng-controller="HomeController" class="container">
+  <div ng-controller="CarteController" class="container">
     <h1><a name="Carte">Carte</a></h1>
     <h2>Afiseaza toate cartile.</h2>
     <table class="table table-bordered">
@@ -51,7 +51,6 @@
         <th style="width:210px;">Options</th>
       </tr>
       <tr ng-repeat="item in carti.data" data-id="{{ item.id }}">
-        <td>{{item.id}}</td>
         <td>{{item.titlu}}</td>
         <td>{{item.autor}}</td>
         <td>
@@ -127,7 +126,7 @@
   <hr/>
 
   <!-- /resources2-->
-  <div ng-controller="HomeController" class="container">
+  <div ng-controller="ZiarController" class="container">
     <h1><a name="Ziar">Ziar</a></h1>
     <h2>Afiseaza toate ziarele</h2>
     <table class="table table-bordered">
@@ -249,7 +248,7 @@
 
   <hr/>
   <!-- resursa 3 !-->
-  <div ng-controller="HomeController" class="container">
+  <div ng-controller="RevistaController" class="container">
     <h1><a name="Revista">Revista</a></h1>
     <h2>Afiseaza toate revistele.</h2>
     <table class="table table-bordered">

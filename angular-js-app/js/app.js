@@ -18,7 +18,7 @@ app.controller('CarteController', ['$scope', '$http', function($scope, $http) {
 
 
 
-  $http.get('http://localhost:8080/carte').then(
+  $http.get('http://localhost:8080/carte/').then(
     function successCallback(response) {
 
     $scope.carti = response;
