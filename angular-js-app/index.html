@@ -35,7 +35,6 @@
   <div class="container">
     <div ng-controller="HomeController">
       <h1>{{ helloWorld }}</h1>
-      <p>Writing this live into the browser...</p>
     </div>
   </div>
 
@@ -52,10 +51,11 @@
         <th style="width:210px;">Options</th>
       </tr>
       <tr ng-repeat="item in carti.data" data-id="{{ item.id }}">
+        <td>{{item.id}}</td>
         <td>{{item.titlu}}</td>
         <td>{{item.autor}}</td>
         <td>
-          <button ng-click="showCarte(item.titlu,item.autor)" class="btn btn-succes btn-xs">
+          <button ng-click="showCarte(item)" class="btn btn-succes btn-xs">
             Open
             <span class="glyphicon glyphicon-folder-open"></span>
           </button>
@@ -77,12 +77,16 @@
         <h2>Edit Carte</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Titlu</label>
-            <input type="text" ng-model="editCarte.titlu" class="form-control" id="attribute4">
+            <label for="attribute1">ID</label>
+            <input type="text" ng-model="editCarte.id" class="form-control" >
           </div>
           <div class="form-group">
-            <label for="attribute2">Autor</label>
-            <input type="text" ng-model="editCarte.autor" class="form-control" id="attribute4">
+            <label for="attribute2">Titlu</label>
+            <input type="text" ng-model="editCarte.titlu" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="attribute3">Autor</label>
+            <input type="text" ng-model="editCarte.autor" class="form-control" >
           </div>
           <button ng-click="updateCarte(carte)" type="submit" class="btn btn-info">Save</button>
         </form>
@@ -115,6 +119,7 @@
       <div class="col-md-10">
         <h1>{{ carteShow.titlu }}</h1>
         <p>{{ carShow.autor }}</p>
+        <p>{{ carShow.id }}</p>
       </div>
     </div>
   </div>
@@ -127,20 +132,22 @@
     <h2>Afiseaza toate ziarele</h2>
     <table class="table table-bordered">
       <tr>
+        <th> ID </th>
         <th>Nume</th>
-		<th> An </th>
-		<th> Luna </th>
-		<th> Zi </th>
+    		<th> An </th>
+    		<th> Luna </th>
+    		<th> Zi </th>
         <th style="width:210px;">Options</th>
       </tr>
 
-      <tr ng-repeat="item in ziare.data">
+      <tr ng-repeat="item in ziare.data" data-id="{{ item.id }}">
+        <td>{{ item.id }}</td>
         <td>{{ item.nume }}</td>
         <td>{{ item.an }}</td>
         <td>{{ item.luna }}</td>
         <td>{{ item.zi }}</td>
         <td>
-          <button ng-click="showZiar(item.nume)" class="btn btn-success btn-xs">
+          <button ng-click="showZiar(item)" class="btn btn-success btn-xs">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
           </button>
@@ -186,20 +193,24 @@
         <h2>Edit Ziar</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Nume</label>
-            <input type="text" class="form-control" id="attribute1" ng-model="editZiar.nume">
+            <label for="attribute1">ID</label>
+            <input type="text" class="form-control" id="attribute1" ng-model="editZiar.id">
           </div>
           <div class="form-group">
-            <label for="attribute2">An</label>
-            <input type="text" class="form-control" id="attribute2" ng-model="editZiar.an">
+            <label for="attribute2">Nume</label>
+            <input type="text" class="form-control" id="attribute2" ng-model="editZiar.nume">
           </div>
           <div class="form-group">
-            <label for="attribute2">Luna</label>
-            <input type="text" class="form-control" id="attribute2" ng-model="editZiar.luna">
+            <label for="attribute3">An</label>
+            <input type="text" class="form-control" id="attribute3" ng-model="editZiar.an">
           </div>
           <div class="form-group">
-            <label for="attribute2">Zi</label>
-            <input type="text" class="form-control" id="attribute2" ng-model="editZiar.zi">
+            <label for="attribute4">Luna</label>
+            <input type="text" class="form-control" id="attribute4" ng-model="editZiar.luna">
+          </div>
+          <div class="form-group">
+            <label for="attribute5">Zi</label>
+            <input type="text" class="form-control" id="attribute5" ng-model="editZiar.zi">
           </div>
           <button type="submit" class="btn btn-success" ng-click="updateZiar(ziar)">Save</button>
         </form>
@@ -218,14 +229,18 @@
         <h3>Editie</h3>
         <table class="table table-bordered table-striped">
           <tr>
+            <th>ID</th>
             <th>An</th>
             <th>Luna</th>
             <th>Zi</th>
+
           </tr>
           <tr>
+            <td>{{ ziarShow.id }</td>
             <td>{{ ziarShow.an }}</td>
             <td>{{ ziarShow.luna }}</td>
             <td>{{ ziarShow.zi }</td>
+
           </tr>
         </table>
       </div>
@@ -239,18 +254,20 @@
     <h2>Afiseaza toate revistele.</h2>
     <table class="table table-bordered">
       <tr>
+       <th> ID </th>
        <th> Nume </th>
-	   <th> An </th>
-	   <th> Luna </th>
-        <th style="width:210px;">Options</th>
+  	   <th> An </th>
+  	   <th> Luna </th>
+       <th style="width:210px;">Options</th>
       </tr>
 
-      <tr ng-repeat="item in reviste.data">
+      <tr ng-repeat="item in reviste.data" data-id="{{ item.id }}">
+        <td>{{ item.id }}</td>
         <td>{{ item.nume }}</td>
         <td>{{ item.an }}</td>
         <td>{{ item.luna }}</td>
         <td>
-          <button ng-click="showRevista(item.nume)" class="btn btn-success btn-xs">
+          <button ng-click="showRevista(item)" class="btn btn-success btn-xs">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
           </button>
@@ -258,7 +275,7 @@
               Edit
               <span class="glyphicon glyphicon-edit"></span>
           </button>
-          <button ng-click="deleteFacultate(item)" class="btn btn-danger btn-xs">
+          <button ng-click="deleteRevista(item)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
           </button>
@@ -310,10 +327,12 @@
           <h3>Editie</h3>
           <table class="table table-bordered table-striped">
             <tr>
+              <th>ID</th>
               <th>An</th>
               <th>Luna</th>
             </tr>
             <tr>
+              <td>{{ revistaShow.id }}</td>
               <td>{{ revistaShow.an }}</td>
               <td>{{ revistaShow.luna }}</td>
             </tr>

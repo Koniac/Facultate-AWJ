@@ -34,9 +34,9 @@ app.controller('CarteController', ['$scope', '$http', function($scope, $http) {
 
   };
 
-  $scope.showCarte = function(carteTitlu,carteAutor) {
+  $scope.showCarte = function(carte) {
     $scope.isOpen = true;
-    $http.get('http://localhost:8080/carte/'.concat(carteTitlu,',',carteAutor)).then(
+    $http.get('http://localhost:8080/carte/'.concat(carte.id)).then(
     function successCallback(response) {
       $scope.carteShow = response.data;
     });
@@ -53,7 +53,7 @@ app.controller('CarteController', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.deleteCarte = function(carte) {
-    $http.delete('http://localhost:8080/carte/' + carte.titlu + "," +carte.autor)
+    $http.delete('http://localhost:8080/carte/' + carte.id)
     .then(
       function successCallback(response) {
         angular.element('[data-id=' + id + ']').remove();
@@ -96,9 +96,9 @@ app.controller('ZiarController', ['$scope', '$http', function($scope, $http) {
 
   };
 
-  $scope.showZiar = function(ziarName) {
+  $scope.showZiar = function(ziar) {
     $scope.isOpen = true;
-    $http.get('http://localhost:8080/ziar/'.concat(ziarNume)).then(
+    $http.get('http://localhost:8080/ziar/'.concat(ziar.id)).then(
       function successCallback(response) {
 
       $scope.ziarShow = response.data[0];
@@ -115,7 +115,7 @@ app.controller('ZiarController', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.deleteZiar = function(ziar) {
-    $http.delete('http://localhost:8080/ziar/' + ziar.nume + "," + ziar.an)
+    $http.delete('http://localhost:8080/ziar/' + ziar.id)
     .then(
       function successCallback(response) {
         angular.element('[data-id=' + id + ']').remove();
@@ -158,9 +158,9 @@ app.controller('RevistaController', ['$scope', '$http', function($scope, $http) 
 
   };
 
-  $scope.showRevista = function(revistaNume) {
+  $scope.showRevista = function(revista) {
     $scope.isOpen = true;
-    $http.get('http://localhost:8080/revista/'.concat(revistaNume)).then(
+    $http.get('http://localhost:8080/revista/'.concat(revista.id)).then(
       function successCallback(response) {
 
       $scope.revistaShow = response.data[0];
@@ -177,7 +177,7 @@ app.controller('RevistaController', ['$scope', '$http', function($scope, $http) 
   };
 
   $scope.deleteRevista = function(revista) {
-    $http.delete('http://localhost:8080/revista/' + revista.nume + "," + revista.an)
+    $http.delete('http://localhost:8080/revista/' + revista.id)
     .then(
       function successCallback(response) {
         angular.element('[data-id=' + id + ']').remove();
